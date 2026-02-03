@@ -27,7 +27,7 @@
 
   /* Weight */
   --font-weight-normal: 400;
-/*600か500は統一すべき。500をmedium、600をsemibold*/
+/*  --font-weight-medium: 500;*/
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
@@ -72,7 +72,7 @@ body {
   font-size: 1.6rem; 
   line-height: 1.65;
   letter-spacing: 0.01em;
-/*  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
 }
 
 /* 画像がはみ出さないように */
@@ -164,7 +164,7 @@ background-color: rgba(255, 255, 255, 0.8);
 .yori-site-title {
   margin: 0;
   font-size: 1.92rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   white-space: nowrap;
 }
 
@@ -275,11 +275,6 @@ background-color: rgba(255, 255, 255, 0.8);
   border-top: 1px solid var(--gray-light);
 }
 
-/* 行ホバー */
-.yori-post:hover {
-  background: color-mix(in srgb, var(--gray-extra-light) 55%, white);
-}
-
 /* ピン留め：背景だけ薄く色付け */
 .yori-post--pinned {
   background: color-mix(in srgb, var(--primary-color) 6%, white);
@@ -341,13 +336,13 @@ background-color: rgba(255, 255, 255, 0.8);
 }
 
 .yori-post-name {
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 .yori-post-handle,
 .yori-post-time a {
   color: var(--gray-dark);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   letter-spacing: -0.015em;
 }
 
@@ -387,7 +382,7 @@ background-color: rgba(255, 255, 255, 0.8);
 /* テキストサイズのバリエーション */
 .yori-text-lg {
   font-size: 1.68rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-bold);
 }
 
 .yori-text-sm {
@@ -410,8 +405,8 @@ background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.6rem;
 }
 
-.yori-post-text h2 { font-weight: 600; }
-.yori-post-text h3 { font-weight: 500; }
+.yori-post-text h2 { font-weight: var(--font-weight-bold); }
+.yori-post-text h3 { font-weight: var(--font-weight-semibold); }
 
 /* リスト */
 .yori-post-text ul,
@@ -459,7 +454,7 @@ background-color: rgba(255, 255, 255, 0.8);
 
 .yori-post-text th {
   background: var(--gray-extra-light);
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 /* 引用 */
@@ -639,7 +634,7 @@ background-color: rgba(255, 255, 255, 0.8);
 }
 
 .yori-footer-sitename {
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
 }
 
 .yori-footer-line .yori-footer-admin {
@@ -712,11 +707,11 @@ background-color: rgba(255, 255, 255, 0.8);
     width: var(--sp-post-avatar-width);
     height: var(--sp-post-avatar-height);
   }
-
+/*
   .yori-post-main {
     padding-right: var(--sp-post-avatar-width);
   }
-
+*/
   .yori-post-header {
     min-height: var(--sp-post-avatar-height); /* アバターに同期 */
     font-size: 1.28rem;
@@ -764,7 +759,6 @@ background-color: rgba(255, 255, 255, 0.8);
  * 14. トランジョンの指定
  * ======================================= */
 @media (prefers-reduced-motion: no-preference) {
-  .yori-post,
   .yori-search-button,
   .yori-post-tag-link,
   .yori-site-nav a,
