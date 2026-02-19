@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RIREQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Colors (minimal set) */
+      --c-text:#1b1f2a;
+      --c-bg:#ffffff;
+      --c-accent:#3aa0ff; /* slightly blue */
+      --c-card:#f6f8fc;
+
+      /* Type */
+      --ff-body:"Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --ff-title:"Exo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --fs-base:16px;
+      --fw-regular:400;
+      --fw-medium:500;
+      --fw-bold:700;
+      --lh-body:1.7;
+      --lh-tight:1.2;
+
+      /* Layout */
+      --container:680px;
+      --gutter:clamp(14px, 4vw, 22px);
+      --card-pad:clamp(14px, 3.5vw, 18px);
+      --stack:14px;
+      --radius:10px; /* small-ish */
+
+      /* Derived (formula-based from the minimal set) */
+      --c-muted:color-mix(in srgb, var(--c-text) 65%, var(--c-bg));
+      --c-border:color-mix(in srgb, var(--c-text) 16%, var(--c-bg));
+      --c-link:var(--c-accent);
+      --focus:0 0 0 3px color-mix(in srgb, var(--c-accent) 35%, transparent);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --c-text:#e9edf7;
+        --c-bg:#0b0f16;
+        --c-accent:#5fb3ff;
+        --c-card:#111826;
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{font-size:var(--fs-base)}
+    body{
+      margin:0;
+      font-family:var(--ff-body);
+      font-weight:var(--fw-regular);
+      line-height:var(--lh-body);
+      color:var(--c-text);
+      background:var(--c-bg);
+      text-rendering:optimizeLegibility;
+    }
+    a{color:var(--c-link);text-decoration-thickness:0.08em;text-underline-offset:0.2em}
+    a:hover{text-decoration-thickness:0.12em}
+    a:focus-visible{outline:none;box-shadow:var(--focus);border-radius:8px}
+
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+    .header{
+      position:sticky;top:0;z-index:10;
+      background:color-mix(in srgb, var(--c-bg) 88%, transparent);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--c-border);
+    }
+    .header-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px var(--gutter)}
+    .brand{display:flex;flex-direction:column;gap:4px;min-width:0}
+    .title{
+      margin:0;
+      font-family:var(--ff-title);
+      font-weight:700;
+      letter-spacing:0.22em;
+      line-height:var(--lh-tight);
+      font-size:clamp(22px, 6vw, 34px);
+    }
+    .title a{
+      color:var(--c-accent);
+      text-decoration:none;
+      text-shadow:
+        0 0 10px color-mix(in srgb, var(--c-accent) 35%, transparent),
+        0 0 18px color-mix(in srgb, var(--c-accent) 25%, transparent);
+    }
+    @media (prefers-color-scheme: dark){
+      .title a{
+        text-shadow:
+          0 0 12px color-mix(in srgb, var(--c-accent) 55%, transparent),
+          0 0 22px color-mix(in srgb, var(--c-accent) 35%, transparent);
+      }
+    }
+    .desc{margin:0;color:var(--c-muted);font-size:0.95rem}
+    .nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding-top:4px}
+    .nav a{color:var(--c-text);text-decoration:none}
+    .nav a:hover{color:var(--c-accent)}
+    main{padding:18px 0 28px}
+    .stack{display:grid;gap:var(--stack)}
+
+    .card{
+      background:var(--c-card);
+      border:1px solid var(--c-border);
+      border-radius:var(--radius);
+      padding:var(--card-pad);
+    }
+    .post-head{display:flex;flex-direction:column;gap:6px}
+    .post-title{
+      margin:0;
+      font-size:1.05rem;
+      font-weight:var(--fw-bold);
+      line-height:1.35;
+    }
+    .post-title a{color:var(--c-text)}
+    .post-title a:hover{color:var(--c-accent)}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:var(--c-muted);font-size:0.9rem}
+    .badge{
+      display:inline-flex;align-items:center;
+      border:1px solid color-mix(in srgb, var(--c-accent) 35%, var(--c-border));
+      background:color-mix(in srgb, var(--c-accent) 10%, transparent);
+      color:color-mix(in srgb, var(--c-accent) 85%, var(--c-text));
+      padding:2px 10px;border-radius:999px;font-size:0.85rem
+    }
+
+    .content{margin-top:10px}
+    .content p{margin:10px 0}
+    .content :is(ul,ol){margin:10px 0 10px 1.2em;padding:0}
+    .content blockquote{
+      margin:12px 0;padding:10px 12px;
+      border-left:3px solid var(--c-border);
+      background:color-mix(in srgb, var(--c-bg) 35%, transparent);
+      border-radius:10px;
+      color:var(--c-muted);
+    }
+    .content code{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:0.95em;
+      background:color-mix(in srgb, var(--c-bg) 35%, transparent);
+      border:1px solid var(--c-border);
+      padding:0.1em 0.35em;border-radius:8px;
+    }
+    .content a{word-break:break-word;overflow-wrap:anywhere}
+
+    figure{margin:12px 0 0}
+    img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:calc(var(--radius) - 2px);
+      border:1px solid var(--c-border);
+      background:color-mix(in srgb, var(--c-bg) 60%, transparent);
+    }
+    figcaption{margin-top:8px;color:var(--c-muted);font-size:0.9rem}
+
+    .footer{
+      border-top:1px solid var(--c-border);
+      padding:18px 0 26px;
+      color:var(--c-muted);
+      font-size:0.92rem;
+    }
+    .footer-inner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .footer a{color:var(--c-muted)}
+    .footer a:hover{color:var(--c-accent)}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner wrap">
+      <div class="brand">
+        <h1 class="title"><a href="./">RIREQ</a></h1>
+        <p class="desc">日々のログを、短く正確に残す。</p>
+      </div>
+      <nav class="nav" aria-label="メニュー">
+        <a href="./" aria-current="page">Home</a>
+        <a href="./about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="stack">
+      <article class="card">
+        <header class="post-head">
+          <h2 class="post-title"><a href="./post-001.html">今日は少しだけ前に進めた</a></h2>
+          <div class="meta">
+            <time datetime="2026-02-19T00:00:00+09:00">2026/2/19 00:00</time>
+            <span class="badge">日常</span>
+          </div>
+        </header>
+        <div class="content">
+          <p>ほんの少しだけ作業が進んだ。それだけで十分。</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="post-head">
+          <h2 class="post-title"><a href="./post-002.html">夜の空気が気持ちいい</a></h2>
+          <div class="meta">
+            <time datetime="2026-02-19T00:00:00+09:00">2026/2/19 00:00</time>
+            <span class="badge">写真</span>
+          </div>
+        </header>
+        <div class="content">
+          <p>今日は外に出たら空気が澄んでいた。深呼吸したら少しだけ落ち着いた。</p>
+          <figure>
+            <img src="./assets/sample.jpg" alt="サンプル画像" loading="lazy">
+            <figcaption>静かな夜</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="post-head">
+          <h2 class="post-title"><a href="./post-003.html">表示確認用サンプル</a></h2>
+          <div class="meta">
+            <time datetime="2026-02-19T00:00:00+09:00">2026/2/19 00:00</time>
+            <span class="badge">テスト</span>
+          </div>
+        </header>
+        <div class="content">
+          <p>これは表示確認用の記事です。</p>
+          <p><strong>太字テキスト</strong> / <em>斜体テキスト</em> / <s>取り消し線</s></p>
+          <blockquote>
+            これは引用文です。<br>
+            2行目の引用です。
+          </blockquote>
+          <p>箇条書き：</p>
+          <ul>
+            <li>ひとつめ</li>
+            <li>ふたつめ</li>
+            <li>みっつめ</li>
+          </ul>
+          <p>番号付き：</p>
+          <ol>
+            <li>いち</li>
+            <li>に</li>
+            <li>さん</li>
+          </ol>
+          <p>インラインコード：<code>var sample = true;</code></p>
+          <p>長いURL確認用：<a href="https://example.com/this/is/a/very/long/url/for/layout-checking-purpose-1234567890">https://example.com/this/is/a/very/long/url/for/layout-checking-purpose-1234567890</a></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <header class="post-head">
+          <h2 class="post-title"><a href="./post-004.html">眠い。</a></h2>
+          <div class="meta">
+            <time datetime="2026-02-19T00:00:00+09:00">2026/2/19 00:00</time>
+            <span class="badge">日常</span>
+          </div>
+        </header>
+        <div class="content">
+          <p>今日はもう寝る。</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner wrap">
+      <div>© 2026 RIREQ. All rights reserved.</div>
+      <div>
+        <a href="./about.html">About</a>
+        <span aria-hidden="true"> · </span>
+        <a href="./admin/">Admin</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
