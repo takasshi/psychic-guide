@@ -1,9 +1,9 @@
 /* =========================================
  * style.css
-
- * Table of Contents
  * -----------------------------------------
  
+ * Table of Contents
+
  * 1. Base
  * 2. Header / Navigation
  * 3. Main / Post Structure（meta内の並び替え）
@@ -27,7 +27,9 @@ html {
 
 body {
   margin: 0;
-  font-size: 1rem;
+  color: var(--c-body);
+  font-family: var(--f-body);
+  font-size: var(--f-size-base);
 }
 
 img,
@@ -44,6 +46,13 @@ select {
   font: inherit;
 }
 
+a {
+  color: var(--c-link);
+}
+
+a:hover {
+  color: var(--c-link-hov);
+}
 
 /* =========================================
  * 2. Header / Navigation
@@ -55,6 +64,7 @@ select {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  gap:0.5rem;
 }
 
 
@@ -71,22 +81,11 @@ select {
 .post-meta {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.2rem;
 }
-
-/* リストの初期化と横並び（meta / share） */
-.post-category,
-.post-tags,
-.post-share {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 
 /* =========================================
- * 4. Post meta position control（meta内の並び替え）
+ * meta position control（meta内の並び替え）
  * title → meta → content → share
  * article に「.post-meta--before」を追加する
  * ======================================= */
@@ -105,6 +104,18 @@ select {
 
 .post-meta--before .post-share {
   order: 3;
+}
+
+
+/* リストの初期化と横並び（meta / share） */
+.post-category,
+.post-tags,
+.post-share {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* =========================================
@@ -141,9 +152,14 @@ pre {
 }
 
 code {
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-
+  font-family: var(--f-mono);
 }
+
+.post-content {
+  overflow-wrap: anywhere;
+}
+
+
 /* =========================================
  * 8. Responsive
  * ======================================= */
@@ -152,26 +168,10 @@ code {
 
   /* 例：コンテナ幅だけ調整する */
   .container {
-    max-width: 960px;
+    max-width: var(--lyt-container-width);
     margin-inline: auto;
   }
 
   /* ここに「PCのときだけ変えたいレイアウト系の指定」を足していく */
 }
 
-/* 7. Content Elements のどこかに */
-
-/* Content Elements */
-
-.post-content {
-  overflow-wrap: anywhere;
-}
-
-pre {
-  overflow-x: auto;
-}
-
-pre code {
-  white-space: pre;
-  overflow-wrap: normal;
-}
