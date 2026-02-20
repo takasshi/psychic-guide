@@ -1,1 +1,87 @@
-token.css
+/* =========================================
+ * token.css
+ * ======================================= */
+:root {
+
+  /* =========================
+   * Color: Brand
+   * ======================= */
+  --c-primary: #0068B7;
+
+  --c-secondary: color-mix(in srgb,
+      var(--c-primary) 70%,
+      white 30%);
+
+  --c-tertiary: color-mix(in srgb,
+      var(--c-primary) 70%,
+      black 30%);
+
+
+  /* =========================
+   * Color: Neutral
+   * ======================= */
+  --c-white: #fff;
+  --c-black: #000;
+
+  --c-gray: #bdbdbd;
+  --c-gray-light: color-mix(in srgb, var(--c-gray) 60%, white 40%);
+  --c-gray-lighter: color-mix(in srgb, var(--c-gray) 30%, white 70%);
+  --c-gray-dark: color-mix(in srgb, var(--c-gray) 70%, black 30%);
+  --c-gray-darker: color-mix(in srgb, var(--c-gray) 85%, black 15%);
+
+
+  /* =========================
+   * Color: Roles 追加する場合は「--c-card-bg／--c-card-body」となる。
+   * ======================= */
+  --c-bg: var(--c-white);
+  --c-body: #222;
+
+  --c-link: var(--c-primary);
+  --c-link-hov: var(--c-tertiary);
+
+  /* accessibility.css */
+  --c-focus-visible: #1a73e8;
+
+  /*  Reserved */
+  --c-accent: #ff7a3c;
+  --c-success: #1b873f;
+  --c-warning: #b86b00;
+
+
+  /* =========================
+   * Font
+   * ======================= */
+
+  /* Family */
+  --f-body: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: 'Noto Sans Mono', monospace;
+
+  /* Weight */
+  --f-wt-n: 400;
+  --f-wt-b: 700;
+
+  /* Size */
+  --f-size-base: 16px;
+  --f-size-base-lh: 1.7;
+
+
+  /* =========================
+   * Layout
+   * ======================= */
+  --lyt-container-width: 960px;
+
+
+  /* =========================
+   * Motion
+   * ======================= */
+  --dur: 200ms;
+  --ease: ease-out;
+
+
+  /* =========================
+   * Reserved
+   * ======================= */
+  /* --radius */
+  /* --shadow */
+
+}
