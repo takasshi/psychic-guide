@@ -1,345 +1,298 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>最新の記事 | サイトタイトル</title>
-  <meta name="description" content="サイトの説明文が入ります。">
+    <title>最新の記事 | サイトタイトル</title>
+    <meta name="description" content="サイトの説明文が入ります。">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="token.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="accessibility.css">
+    <link rel="stylesheet" href="token.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="accessibility.css">
 
-</head>
+  </head>
+  <body>
 
-<body>
+    <a href="#main" class="skip-link sr-only">本文へスキップ</a>
 
-  <a href="#main" class="skip-link sr-only">本文へスキップ</a>
+    <div class="container">
 
-  <div class="container">
+      <header id="top" class="site-header">
 
-    <header id="top" class="site-header">
+        <div class="site-branding">
+          <h1 class="site-title">
+            <a href="/">サイトタイトル</a>
+          </h1>
+          <p class="site-description">
+            サイトの説明文が入ります。
+          </p>
+        </div>
 
-      <div class="site-branding">
-        <h1 class="site-title">
-          <a href="/">サイトタイトル</a>
-        </h1>
-        <p class="site-description">
-          サイトの説明文が入ります。
-        </p>
-      </div>
-
-      <nav id="site-navigation" class="site-navigation" aria-label="メインナビゲーション">
-        <ul>
-          <li><a href="/">ホーム</a></li>
-          <li><a href="/blog/">ブログ</a></li>
-          <li><a href="/about/">プロフィール</a></li>
-        </ul>
-      </nav>
-
-      <form class="search-form" role="search" action="/search" method="get">
-        <label for="search-field" class="sr-only">サイト内検索</label>
-        <input
-          id="search-field"
-          class="search-field"
-          type="search"
-          name="s"
-          placeholder="キーワードを入力"
-        >
-        <button class="search-submit" type="submit">
-          検索
-        </button>
-      </form>
-
-    </header>
-
-    <main id="main" class="site-main site-main--list">
-
-      <h2 class="page-title sr-only">
-        最新の記事一覧
-      </h2>
-
-      <!-- 記事ループここから -->
-
-      <article class="post">
-
-        <div class="post-inner">
-
-          <h3 class="post-title">
-            <a href="single.html">記事タイトル</a>
-          </h3>
-
-          <div class="post-content">
-            <p>
-              ここに記事本文の抜粋が入ります。続きを読むリンクなどもここに含めます。
-            </p>
-          </div>
-
-          <div class="post-meta">
-
-            <time class="post-date" datetime="2026-02-19T12:00:00+09:00">
-              2026年2月19日
-            </time>
-
-            <ul class="post-category">
-              <li><a href="#">カテゴリ名</a></li>
-            </ul>
-
-            <ul class="post-tags">
-              <li><a href="#">タグ1</a></li>
-              <li><a href="#">タグ2</a></li>
-            </ul>
-
-            <a href="single.html" class="post-permalink">
-              Permalink
-            </a>
-
-          </div>
-
-          <ul class="post-share">
-            <li><a href="#">X</a></li>
-            <li><a href="#">Facebook</a></li>
+        <nav id="site-navigation" class="site-navigation" aria-label="メインナビゲーション">
+          <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/blog/">blog</a></li>
+            <li><a href="/about/">about</a></li>
           </ul>
+        </nav>
 
-        </div><!-- /.post-inner -->
+        <form class="search-form" role="search" action="/search" method="get">
+          <label for="search-field" class="sr-only">サイト内検索</label>
+          <input id="search-field" class="search-field" type="search" name="s" placeholder="キーワードを入力">
+          <button class="search-submit" type="submit">
+            検索
+          </button>
+        </form>
 
-      </article>
+      </header>
 
-<article class="post">
+      <main id="main" class="site-main">
 
-  <div class="post-inner">
+        <div class="site-main-inner">
 
-    <h3 class="post-title">
-      <a href="single.html">画像付き記事サンプル</a>
-    </h3>
+          <h2 class="page-title sr-only">
+            最新の記事一覧
+          </h2>
 
-    <div class="post-content">
+          <div class="content-main">
+            <!-- 記事ループここから -->
+            <article class="post">
 
-      <figure>
-        <img src="https://placehold.jp/3d4070/ffffff/900x300.png" alt="サンプル画像">
-        <figcaption>画像キャプションの例</figcaption>
-      </figure>
+              <div class="post-inner">
 
-      <p>
-        画像付き記事の抜粋テキストです。画像の上下余白や幅制御、
-        figure要素の扱いを確認するためのサンプルです。
-      </p>
+                <h3 class="post-title">
+                  <a href="single.html">記事タイトル</a>
+                </h3>
 
-    </div>
+                <div class="post-content">
+                  <p>
+                    ここに記事本文の抜粋が入ります。続きを読むリンクなどもここに含めます。
+                  </p>
+                  <figure>
+                    <img src="https://placehold.jp/0068B7/ffffff/1000x300.png" alt="サンプル画像">
+                    <figcaption>figure＋figcaptionのキャプション部分の表示サンプルです。</figcaption>
+                  </figure>
+                </div>
 
-    <div class="post-meta">
-      <time class="post-date" datetime="2026-02-18">2026年2月18日</time>
+                <div class="post-meta">
 
-      <ul class="post-category">
-        <li><a href="#">デザイン</a></li>
-      </ul>
+                  <time class="post-date" datetime="2026-02-19T12:00:00+09:00">
+                    2026年2月19日
+                  </time>
 
-      <ul class="post-tags">
-        <li><a href="#">画像</a></li>
-        <li><a href="#">UI</a></li>
-      </ul>
+                  <ul class="post-category">
+                    <li><a href="#">カテゴリ名</a></li>
+                  </ul>
 
-      <a href="single.html" class="post-permalink">
-        Permalink
-      </a>
-    </div>
+                  <ul class="post-tags">
+                    <li><a href="#">タグ1</a></li>
+                    <li><a href="#">タグ2</a></li>
+                  </ul>
 
-    <ul class="post-share">
-      <li><a href="#">X</a></li>
-      <li><a href="#">Facebook</a></li>
-    </ul>
+                  <a href="single.html" class="post-permalink">
+                    Permalink
+                  </a>
 
-  </div>
+                </div>
 
-</article>
+                <ul class="post-share">
+                  <li><a href="#">X</a></li>
+                  <li><a href="#">Facebook</a></li>
+                </ul>
 
-<article class="post">
+              </div><!-- /.post-inner -->
 
-  <div class="post-inner">
+            </article>
+<hr>
+            <article class="post">
 
-    <h3 class="post-title">
-      <a href="single.html">Typographyテスト記事</a>
-    </h3>
+              <div class="post-inner">
 
-    <div class="post-content">
+                <h3 class="post-title">
+                  <a href="single.html">Typographyテスト記事</a>
+                </h3>
 
-      <p>
-        通常テキスト。<strong>太字</strong>、<em>斜体</em>、
-        <a href="#">リンクテキスト</a>の表示確認。
-      </p>
+                <div class="post-content">
 
-      <h4>小見出しレベル4</h4>
-      <p>
-        小見出し直後の段落。行間や余白の確認用。
-      </p>
+                  <p>
+                    通常テキスト。<strong>太字</strong>、<em>斜体</em>、
+                    <a href="#">リンクテキスト</a>の表示確認。
+                  </p>
 
-      <blockquote>
-        引用文のテストです。インデントや装飾の確認。
-      </blockquote>
+                  <h4>小見出しレベル4</h4>
+                  <p>
+                    小見出し直後の段落。行間や余白の確認用。
+                  </p>
 
-      <ul>
-        <li>リスト1</li>
-        <li>リスト2</li>
-        <li>リスト3</li>
-      </ul>
+                  <blockquote>
+                    引用文のテストです。インデントや装飾の確認。
+                  </blockquote>
 
-      <ol>
-        <li>番号付き1</li>
-        <li>番号付き2</li>
-      </ol>
+                  <ul>
+                    <li>リスト1</li>
+                    <li>リスト2</li>
+                    <li>リスト3</li>
+                  </ul>
 
-      <pre><code>
+                  <ol>
+                    <li>番号付き1</li>
+                    <li>番号付き2</li>
+                  </ol>
+
+                  <pre><code>
 body {
   font-size: 16px;
 }
       </code></pre>
-<p>
-  これはテキストとインライン要素のテストです。
-  <strong>strong（重要な強調）</strong>、
-  <em>em（ニュアンスの強調）</em>、
-  <small>small（補足情報）</small>、
-  <mark>mark（ハイライト）</mark>、
-  上付き<sup>sup</sup>と下付き<sub>sub</sub>、
-  <abbr title="Cascading Style Sheets">CSS</abbr>の略語表示、
-  <del>誤ったテキスト</del><ins>差し替えテキスト</ins>
-  などの表示を確認します。
-</p>
+                  <p>
+                    これはテキストとインライン要素のテストです。
+                    <strong>strong（重要な強調）</strong>、
+                    <em>em（ニュアンスの強調）</em>、
+                    <small>small（補足情報）</small>、
+                    <mark>mark（ハイライト）</mark>、
+                    上付き<sup>sup</sup>と下付き<sub>sub</sub>、
+                    <abbr title="Cascading Style Sheets">CSS</abbr>の略語表示、
+                    <del>誤ったテキスト</del><ins>差し替えテキスト</ins>
+                    などの表示を確認します。
+                  </p>
 
-<blockquote>
-  引用ブロックのサンプルです。文章が複数行になった場合の見え方や、
-  行間、余白、引用記号などのスタイルを確認するためのテキストです。
-</blockquote>
+                  <blockquote>
+                    引用ブロックのサンプルです。文章が複数行になった場合の見え方や、
+                    行間、余白、引用記号などのスタイルを確認するためのテキストです。
+                  </blockquote>
 
-<figure>
-  <img src="https://picsum.photos/800/400" alt="レイアウト確認用のダミー画像">
-  <figcaption>figure＋figcaptionのキャプション部分の表示サンプルです。</figcaption>
-</figure>
+                  <p>
+                    下のテーブルは、セル内のテキスト量が違う場合やヘッダー行のスタイルを確認するためのサンプルです。
+                  </p>
 
-<p>
-  下のテーブルは、セル内のテキスト量が違う場合やヘッダー行のスタイルを確認するためのサンプルです。
-</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>項目</th>
+                        <th>内容</th>
+                        <th>メモ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>行1</td>
+                        <td>短いテキスト</td>
+                        <td>通常のセル表示を確認</td>
+                      </tr>
+                      <tr>
+                        <td>行2</td>
+                        <td>やや長めのテキストが入ったセル。折り返しや横幅の挙動を確認します。</td>
+                        <td>複数行になるケース</td>
+                      </tr>
+                      <tr>
+                        <td>行3</td>
+                        <td>とても長いテキストが続くセルです。とても長いテキストが続くセルです。とても長いテキストが続くセルです。</td>
+                        <td>レイアウトの崩れがないかチェック</td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>項目</th>
-      <th>内容</th>
-      <th>メモ</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>行1</td>
-      <td>短いテキスト</td>
-      <td>通常のセル表示を確認</td>
-    </tr>
-    <tr>
-      <td>行2</td>
-      <td>やや長めのテキストが入ったセル。折り返しや横幅の挙動を確認します。</td>
-      <td>複数行になるケース</td>
-    </tr>
-    <tr>
-      <td>行3</td>
-      <td>とても長いテキストが続くセルです。とても長いテキストが続くセルです。とても長いテキストが続くセルです。</td>
-      <td>レイアウトの崩れがないかチェック</td>
-    </tr>
-  </tbody>
-</table>
+                  <p>
+                    長いURLの表示テストです（折り返しやはみ出しを確認したい場合に使います）。
+                  </p>
 
-<p>
-  長いURLの表示テストです（折り返しやはみ出しを確認したい場合に使います）。
-</p>
+                  <p>
+                    <a href="https://www.example.com/this/is/a/very/long/url/that/keeps/going/on/and/on/without/any/line-breaks/to/test/how/it/behaves/in/the/layout/especially/on/small/screens">
+                      https://www.example.com/this/is/a/very/long/url/that/keeps/going/on/and/on/without/any/line-breaks/to/test/how/it/behaves/in/the-layout-especially-on-small-screens
+                    </a>
+                  </p>
 
-<p>
-  <a href="https://www.example.com/this/is/a/very/long/url/that/keeps/going/on/and/on/without/any/line-breaks/to/test/how/it/behaves/in/the/layout/especially/on/small/screens">
-    https://www.example.com/this/is/a/very/long/url/that/keeps/going/on/and/on/without/any/line-breaks/to/test/how/it/behaves/in/the-layout-especially-on-small-screens
-  </a>
-</p>
+                  <p>
+                    長い単語（スペースなし英単語）の表示テストです。下の単語が折り返されるかどうか、横スクロールになるかどうかを確認します。
+                  </p>
 
-<p>
-  長い単語（スペースなし英単語）の表示テストです。下の単語が折り返されるかどうか、横スクロールになるかどうかを確認します。
-</p>
+                  <p>
+                    supercalifragilisticexpialidocioussupercalifragilisticexpialidocioussupercalifragilisticexpialidocious
+                  </p>
+                </div>
 
-<p>
-  supercalifragilisticexpialidocioussupercalifragilisticexpialidocioussupercalifragilisticexpialidocious
-</p>
-    </div>
+                <div class="post-meta">
+                  <time class="post-date" datetime="2026-02-17">2026年2月17日</time>
 
-    <div class="post-meta">
-      <time class="post-date" datetime="2026-02-17">2026年2月17日</time>
+                  <ul class="post-category">
+                    <li><a href="#">テスト</a></li>
+                  </ul>
 
-      <ul class="post-category">
-        <li><a href="#">テスト</a></li>
-      </ul>
+                  <ul class="post-tags">
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">CSS</a></li>
+                  </ul>
 
-      <ul class="post-tags">
-        <li><a href="#">Typography</a></li>
-        <li><a href="#">CSS</a></li>
-      </ul>
+                  <a href="single.html" class="post-permalink">
+                    Permalink
+                  </a>
+                </div>
 
-      <a href="single.html" class="post-permalink">
-        Permalink
+                <ul class="post-share">
+                  <li><a href="#">X</a></li>
+                  <li><a href="#">Facebook</a></li>
+                </ul>
+
+              </div>
+
+            </article>
+<hr>
+            <!-- 記事ループここまで -->
+
+          </div><!-- /.content-main -->
+
+          <div class="content-sidebar">
+            <!-- サイドバ（まだ空）ー -->
+          </div>
+
+        </div><!-- /.site-main-inner -->
+
+        <nav class="pagination" aria-label="ページ送り">
+          <ul>
+            <li><a href="#">&laquo; 前へ</a></li>
+            <li><span class="current">1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">次へ &raquo;</a></li>
+          </ul>
+        </nav>
+
+      </main>
+
+      <footer class="site-footer">
+
+        <div class="site-info">
+
+          <span class="copyright">
+            © 2026 サイト名
+          </span>
+
+          <a href="/admin" class="site-admin">
+            管理画面
+          </a>
+
+          <span class="powered-by">
+            Powered by
+            <a href="https://www.bludit.com/" target="_blank" rel="noopener">
+              Bludit
+            </a>
+            /
+            <a href="#" target="_blank" rel="noopener">
+              Custom Theme
+            </a>
+          </span>
+
+        </div>
+
+      </footer>
+
+      <a href="#top" class="back-to-top" aria-label="ページ上部へ戻る">
+        ↑ ページの先頭へ戻る
       </a>
-    </div>
 
-    <ul class="post-share">
-      <li><a href="#">X</a></li>
-      <li><a href="#">Facebook</a></li>
-    </ul>
+    </div><!-- /.container -->
 
-  </div>
+  </body>
 
-</article>
-
-      <!-- 記事ループここまで -->
-
-      <nav class="pagination" aria-label="ページ送り">
-        <ul>
-          <li><a href="#">&laquo; 前へ</a></li>
-          <li><span class="current">1</span></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">次へ &raquo;</a></li>
-        </ul>
-      </nav>
-
-    </main>
-
-    <footer class="site-footer">
-
-      <div class="site-info">
-
-        <span class="copyright">
-          © 2026 サイト名
-        </span>
-
-        <a href="/admin" class="site-admin">
-          管理画面
-        </a>
-
-        <span class="powered-by">
-          Powered by
-          <a href="https://www.bludit.com/" target="_blank" rel="noopener">
-            Bludit
-          </a>
-          /
-          <a href="#" target="_blank" rel="noopener">
-            Custom Theme
-          </a>
-        </span>
-
-      </div>
-
-    </footer>
-
-    <a href="#top" class="back-to-top" aria-label="ページ上部へ戻る">
-      ↑ ページの先頭へ戻る
-    </a>
-
-  </div><!-- /.container -->
-
-</body>
 </html>
