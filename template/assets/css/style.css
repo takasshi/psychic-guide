@@ -1,0 +1,181 @@
+/* =========================================
+ * style.css
+ * -----------------------------------------
+ 
+ * Table of Contents
+
+ * 1. Base
+ * 2. Header / Navigation
+ * 3. Main / Post Structure（meta内の並び替え）
+ * 4. Post Meta Position Control
+ * 5. Pagination
+
+/* =========================================
+ * 1. Base
+ * ======================================= */
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: var(--c-body);
+  font-family: var(--f-body);
+  font-size: var(--f-size-base);
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: var(--c-link);
+}
+
+a:hover {
+  color: var(--c-link-hov);
+}
+
+/* =========================================
+ * 2. Header / Navigation
+ * ======================================= */
+
+.site-title {
+  font-family: var(--f-site-title);
+}
+
+.site-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap:0.5rem;
+}
+
+
+/* =========================================
+ * 3. Main / Post structure
+ * ======================================= */
+
+.post-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* meta内は並び替え可能にする */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+/* =========================================
+ * meta position control（meta内の並び替え）
+ * title → meta → content → share
+ * article に「.post-meta--before」を追加する
+ * ======================================= */
+
+.post-meta--before .post-title {
+  order: 0;
+}
+
+.post-meta--before .post-meta {
+  order: 1;
+}
+
+.post-meta--before .post-content {
+  order: 2;
+}
+
+.post-meta--before .post-share {
+  order: 3;
+}
+
+
+/* リストの初期化と横並び（meta / share） */
+.post-category,
+.post-tags,
+.post-share {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+ * 5. Pagination
+ * ======================================= */
+
+.pagination ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================
+ * 6. Utility
+ * ======================================= */
+/* 上に戻る */
+.back-to-top {
+  display: inline-block;
+}
+
+/* =========================================
+ * 7. Content Elements
+ * -----------------------------------------
+ * 記事本文内の標準要素（h1-h6, p, ul, ol,
+ * blockquote, pre, code, table, figure 等）
+ * の最小スタイルを定義する。
+ * ======================================= */
+
+pre {
+  overflow-x: auto;
+}
+
+code {
+  font-family: var(--f-mono);
+}
+
+.post-content {
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+ * 8. Responsive
+ * ======================================= */
+
+@media (min-width: 768px) {
+
+  /* 例：コンテナ幅だけ調整する */
+  .container {
+    max-width: var(--lyt-container-width);
+    margin-inline: auto;
+  }
+
+  /* ここに「PCのときだけ変えたいレイアウト系の指定」を足していく */
+}
+
