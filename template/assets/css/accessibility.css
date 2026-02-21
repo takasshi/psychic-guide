@@ -1,0 +1,73 @@
+/* =========================================
+ * accessibility.css
+ * ======================================= */
+
+/* 1. 画面には見せないけれど、スクリーンリーダーには読ませたいテキスト */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* 2. skip-link（キーボード操作時のみ表示） */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+
+  background-color: var(--c-bg);
+  color: var(--c-body);
+  text-decoration: none;
+}
+
+
+/* 3. キーボードフォーカスリング */
+:focus-visible {
+  outline: 2px solid var(--c-focus-visible);
+  outline-offset: 2px;
+}
+
+
+/* 4. 動きを減らしたい利用者への対応 */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
