@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>プロフィール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg-color:          #050814;
+      --card-bg-color:     #0f172a;
+      --border-color:      #1e293b;
+      --text-color:        #e5e7eb;
+      --muted-color:       #9ca3af;
+      --accent-color:      #38bdf8;
+      --accent-color-soft: rgba(56, 189, 248, 0.15);
+      --font-family-base:  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                           sans-serif;
+      --radius-large:      1.5rem;
+      --radius-full:       999px;
+      --shadow-soft:       0 24px 60px rgba(0, 0, 0, 0.6);
+      --space-xs:          0.5rem;
+      --space-sm:          0.75rem;
+      --space-md:          1.25rem;
+      --space-lg:          2rem;
+      --font-size-base:    16px;
+      --font-size-sm:      0.875rem;
+      --font-size-lg:      1.125rem;
+      --font-size-xl:      1.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      font-family: var(--font-family-base);
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top, #1e293b 0, transparent 55%),
+        radial-gradient(circle at bottom, #020617 0, #020617 60%);
+      color: var(--text-color);
+    }
+
+    .profile {
+      width: 100%;
+      max-width: 480px;
+      padding: var(--space-lg);
+      border-radius: var(--radius-large);
+      background-color: var(--card-bg-color);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .profile-avatar {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--accent-color);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(248, 250, 252, 0.2), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(56, 189, 248, 0.35), transparent 55%),
+        #020617;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .profile-title {
+      margin: 0 0 0.125rem;
+      font-size: var(--font-size-xl);
+      letter-spacing: 0.02em;
+    }
+
+    .profile-handle {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      color: var(--muted-color);
+    }
+
+    .profile-tagline {
+      margin: 0.25rem 0 0;
+      font-size: var(--font-size-sm);
+      color: var(--muted-color);
+    }
+
+    .profile-body {
+      margin-bottom: var(--space-lg);
+      font-size: var(--font-size-sm);
+      color: var(--muted-color);
+    }
+
+    .profile-body p {
+      margin: 0 0 var(--space-sm);
+    }
+
+    .profile-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text-color);
+      background-color: var(--accent-color-soft);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.12s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .profile-link span {
+      display: inline-block;
+    }
+
+    .profile-link:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    .profile-link:hover {
+      background-color: rgba(56, 189, 248, 0.25);
+      border-color: var(--accent-color);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.8);
+    }
+
+    .profile-link:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .profile-footer {
+      margin-top: var(--space-md);
+      font-size: 0.75rem;
+      color: var(--muted-color);
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="profile" aria-labelledby="profile-name">
+    <header class="profile-header">
+      <div class="profile-avatar" aria-hidden="true">
+        U
+      </div>
+
+      <div>
+        <h1 class="profile-title" id="profile-name">あなたの名前</h1>
+        <p class="profile-handle">@username</p>
+        <p class="profile-tagline">Web / Translation / Games</p>
+      </div>
+    </header>
+
+    <section class="profile-body" aria-label="プロフィール">
+      <p>
+        自己紹介テキストがここに入ります。いま興味があること、作っているもの、好きなゲームや
+        創作ジャンルなどを気ままに書いてください。
+      </p>
+      <p>
+        以下のリンクからあなたのプロジェクトやページにアクセスできます。
+      </p>
+    </section>
+
+    <nav class="profile-links" aria-label="リンク集">
+      <a class="profile-link" href="https://takasshi.github.io/psychic-guide/" target="_blank" rel="noreferrer">
+        <span>📘</span>
+        <span>Psychic Guide</span>
+      </a>
+
+      <a class="profile-link" href="https://takasshi.github.io/psychic-guide/template/index.html" target="_blank" rel="noreferrer">
+        <span>📄</span>
+        <span>Psychic Guide Template</span>
+      </a>
+
+      <a class="profile-link" href="#" target="_blank" rel="noreferrer">
+        <span>🐦</span>
+        <span>Twitter / X</span>
+      </a>
+
+      <a class="profile-link" href="#" target="_blank" rel="noreferrer">
+        <span>💻</span>
+        <span>GitHub</span>
+      </a>
+
+      <a class="profile-link" href="#" target="_blank" rel="noreferrer">
+        <span>📝</span>
+        <span>Blog</span>
+      </a>
+    </nav>
+
+    <p class="profile-footer">
+      作った人：<a href="https://takasshi.github.io/psychic-guide/" target="_blank" rel="noreferrer" style="color: var(--accent-color);">takasshi.github.io</a>
+    </p>
+  </main>
+</body>
+</html>
